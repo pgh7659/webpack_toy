@@ -3,24 +3,21 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  devtool: 'cheap-eval-source-map',
+  devtool: 'source-map',
   entry: [
-    'webpack-dev-server/client?http://localhost:8080',
-    'webpack/hot/dev-server',
     './src/js'
   ],
   output: {
     path: path.join(__dirname, '/dist'),
     filename: 'bundle.js'
   },
+  optimization: {
+    minimize: true
+  },
   plugins: [
     new webpack.optimize.OccurrenceOrderPlugin(),
     new HtmlWebpackPlugin({
       template: './src/template/index.html'
     })
-  ],
-  devServer: {
-    contentBase: './dist',
-    hot: true
-  }
+  ]
 }

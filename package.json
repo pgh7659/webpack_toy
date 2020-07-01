@@ -6,7 +6,8 @@
   "author": "ghpark",
   "license": "MIT",
   "scripts": {
-    "dev": "webpack-dev-server --config webpack.config.dev.js"
+    "build": "webpack --config webpack.config.prod.js --mode=production",
+    "dev": "webpack-dev-server --config webpack.config.dev.js --mode=development"
   },
   "devDependencies": {
     "html-webpack-plugin": "^4.3.0",
